@@ -4,7 +4,7 @@ import { projects } from "../constants/projects"
 import TextType from "../components/TextType";
 import DecryptedText from "../components/DecryptedText";
 import Particles from "../components/Particles";
-import ElectricBorder from "../components/ElectricBorder.jsx";
+import GradualBlurOverlay from "../components/GradualBlurOverlay.jsx";
 import ProfileCard from "../components/ProfileCard.jsx";
 const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 
@@ -13,6 +13,18 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 ---
 
 <Base title={title}>
+	{/* Bottom-only gradual blur overlay */}
+	<GradualBlurOverlay
+		client:load
+		position="bottom"
+		height="4rem"
+		strength={5}
+		divCount={5}
+		curve="bezier"
+		exponential={true}
+		opacity={1}
+		preset="page-footer"
+	/>
 	{/* Background Particles */}
 	<div class="fixed inset-0 -z-10 pointer-events-none">
 		<Particles client:load className="w-full h-full" />
@@ -44,16 +56,7 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 				className="text-muted text-md md:text-2xl"
 			/>
 			<div class="flex flex-col md:flex-row gap-4 mt-4">
-				<ElectricBorder client:load 
-					color="#FF6B3D" 
-					thickness={2} 
-					speed={1.2} 
-					chaos={1.1} 
-					style={{ borderRadius: '0.25rem' }}
-					className=""
-				>
-					<a class="block bg-transparent text-text px-4 py-2 rounded" href="https://wa.me/" data-i18n="home.send_whatsapp">Enviame un whatsapp</a>
-				</ElectricBorder>
+				<a class="block bg-accent backdrop-blur text-text px-4 py-2 rounded shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-300" href="https://wa.me/" data-i18n="home.send_whatsapp">Enviame un whatsapp</a>
 				<a class="block bg-transparent text-accent px-4 py-2 rounded" href="" data-i18n="home.schedule_meeting">Agenda una reunión</a>
 			</div>
 		</div>
@@ -63,7 +66,7 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 	</div>
 	<div class="flex flex-col justify-center items-center gap-4 mt-16">
 		<div class="flex flex-col justify-center items-center gap-4">
-			<h2 class="text-5xl font-bold md:text-5xl" data-i18n="section.what_i_do_title">¿Que hago?</h2>
+			<h2 class="text-3xl font-bold md:text-5xl" data-i18n="section.what_i_do_title">¿Que hago?</h2>
 			<p class="text-muted text-md md:text-xl text-center" data-i18n-html="section.what_i_do_desc">Soy Ignacio Poletti, Web Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras.</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
@@ -118,7 +121,7 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 			))}
 		</div>
 	</div>
-	<div>
+	<div class="mb-16">
 		<h2 class="text-3xl font-bold text-center mt-16" data-i18n="cta.start_title">¿Empezamos?</h2>
 		<p class="text-center mt-4" data-i18n="cta.start_desc">Contame tus necesidades y yo te propondré soluciones</p>
 		<hr class="w-1/2 mx-auto mt-8">

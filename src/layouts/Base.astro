@@ -31,6 +31,7 @@ import "aos/dist/aos.css";
     <script type="module">
       import { initI18n, applyTranslations, i18next } from "../lib/i18n";
       import AOS from "aos";
+      import Lenis from "@studio-freight/lenis";
       (async () => {
         await initI18n();
         applyTranslations();
@@ -51,6 +52,24 @@ import "aos/dist/aos.css";
               } catch {}
             }
           });
+        }
+
+        // Smooth/inertial scroll with Lenis (respects prefers-reduced-motion)
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!prefersReducedMotion) {
+          const lenis = new Lenis({
+            // Adjust to taste
+            duration: 1.2, // higher = more inertia
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            smoothTouch: false,
+          });
+
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
         }
       })();
     </script>

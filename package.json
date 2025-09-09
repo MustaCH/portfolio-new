@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.1",
+    "@studio-freight/lenis": "^1.0.42",
     "aos": "^2.3.4",
     "astro": "^5.13.5",
     "gsap": "^3.13.0",
     "i18next": "^25.5.2",
     "i18next-browser-languagedetector": "^8.2.0",
+    "mathjs": "^14.7.0",
     "motion": "^12.23.12",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
