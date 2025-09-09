@@ -178,7 +178,7 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
         <div className="absolute inset-0" style={bgGlowStyle} />
       </div>
 
-      <div className="relative" style={inheritRadius}>
+      <div className="relative h-full" style={inheritRadius}>
         {children}
       </div>
     </div>

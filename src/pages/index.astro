@@ -4,25 +4,13 @@ import { projects } from "../constants/projects"
 import TextType from "../components/TextType";
 import DecryptedText from "../components/DecryptedText";
 import Particles from "../components/Particles";
-import GradualBlurOverlay from "../components/GradualBlurOverlay.jsx";
-import ProfileCard from "../components/ProfileCard.jsx";
+import ProjectCard from "../components/ProjectCard.jsx";
+import ElectricBorder from "../components/ElectricBorder";
 const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 
 ---
 
 <Base title={title}>
-	{/* Bottom-only gradual blur overlay */}
-	<GradualBlurOverlay
-		client:load
-		position="bottom"
-		height="4rem"
-		strength={5}
-		divCount={5}
-		curve="bezier"
-		exponential={true}
-		opacity={1}
-		preset="page-footer"
-	/>
 	{/* Background Particles */}
 	<div class="fixed inset-0 -z-10 pointer-events-none">
 		<Particles client:load className="w-full h-full" />
@@ -63,9 +51,43 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 			<img class="" src="/hero-image.PNG" alt="Imagen principal">
 		</div>
 	</div>
+	<div class="flex flex-col gap-12 py-12">
+		<div class="text-center">
+			<h2 class="text-3xl font-bold md:text-5xl">Servicios</h2>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-3 justify-evenly items-center gap-4">
+			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black h-96">
+				<div class="flex flex-col justify-between gap-6 h-full">
+					<div class="flex flex-col gap-2">
+						<h3 class="text-2xl font-bold text-mint-200">Desarrollo web</h3>
+						<p class="text-muted text-md">Crear interfaces mordernas, responsivas y fáciles de usar con tecnologías de vanguardia.</p>
+					</div>
+					<button class="block bg-mint-200 border-mint-200 border-2 backdrop-blur text-surface-200 px-4 py-2 text-center rounded-xl shadow-[0_0_18px_rgba(52,211,153,0.55)] hover:shadow-[0_0_28px_rgba(52,211,153,0.85)] transition-shadow duration-150">Solicitar cotización</button>
+				</div>
+			</ElectricBorder>
+			<ElectricBorder client:load color="#FF6B3D" speed={1} chaos={0.3} thickness={3} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black h-96">
+				<div class="flex flex-col justify-between gap-6 h-full">
+					<div class="flex flex-col gap-2">
+						<h3 class="text-2xl font-bold">Automatizaciones con IA</h3>
+						<p class="text-muted text-md">Automatiza tareas y flujos de trabajo repetitivos usando IA y n8n para aumentar la eficiencia y reducir el esfuerzo manual</p>
+					</div>
+					<button class="block bg-accent backdrop-blur text-text px-4 py-2 text-center rounded-xl shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-150">Solicitar cotización</button>
+				</div>
+			</ElectricBorder>
+			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black h-96">
+				<div class="flex flex-col justify-between gap-6 h-full">
+					<div class="flex flex-col gap-2">
+						<h3 class="text-2xl font-bold text-mint-200">Desarrollo mobile</h3>
+						<p class="text-muted text-md">Crear interfaces mordernas, responsivas y fáciles de usar con tecnologías de vanguardia.</p>
+					</div>
+					<button class="block bg-mint-200 border-mint-200 border-2 backdrop-blur text-surface-200 px-4 py-2 text-center rounded-xl shadow-[0_0_18px_rgba(52,211,153,0.55)] hover:shadow-[0_0_28px_rgba(52,211,153,0.85)] transition-shadow duration-150">Solicitar cotización</button>
+				</div>
+			</ElectricBorder>
+		</div>
+	</div>
 	<div class="flex flex-col justify-center items-center gap-4 mt-16">
 		<div class="flex flex-col justify-center items-center gap-4">
-			<h2 class="text-3xl font-bold md:text-5xl">¿Que hago?</h2>
+			<h2 class="text-3xl font-bold md:text-5xl">¿Quien soy?</h2>
 			<p class="text-muted text-md md:text-xl text-center">Soy Ignacio Poletti, Web Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras.</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
@@ -108,7 +130,7 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 		<h2 class="text-3xl font-bold text-center mt-16">Proyectos destacados</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 mt-16">
 			{projects.map((project) => (
-				<ProfileCard
+				<ProjectCard
 					client:load
 					image={project.image}
 					title={project.title}

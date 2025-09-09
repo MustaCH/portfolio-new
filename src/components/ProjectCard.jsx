@@ -17,7 +17,7 @@ const Tag = ({ children, variant = "accent" }) => {
  * @param {string} [props.link]
  * @param {string} [props.accentColor]
  */
-export default function ProfileCard({
+export default function ProjectCard({
   image,
   title,
   description,
@@ -58,10 +58,10 @@ export default function ProfileCard({
           href={link}
           target="_blank"
           rel="noreferrer noopener"
-          className="text-accent text-md text-start flex items-center gap-1 h-8"
+          className="text-accent text-md text-start flex items-center gap-1 h-14"
           style={{ color: accentColor }}
         >
-          Ver más
+          Ver detalle
           <svg
             className="lucide lucide-arrow-right"
             fill="none"
