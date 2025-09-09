@@ -3,8 +3,35 @@
 import { useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 
+/**
+ * @typedef {Object} TextTypeProps
+ * @property {string | string[] | undefined} [text]
+ * @property {boolean} [stripHtml]
+ * @property {keyof HTMLElementTagNameMap | React.ComponentType<any>} [as]
+ * @property {number} [typingSpeed]
+ * @property {number} [initialDelay]
+ * @property {number} [pauseDuration]
+ * @property {number} [deletingSpeed]
+ * @property {boolean} [loop]
+ * @property {string} [className]
+ * @property {boolean} [showCursor]
+ * @property {boolean} [hideCursorWhileTyping]
+ * @property {string} [cursorCharacter]
+ * @property {string} [cursorClassName]
+ * @property {number} [cursorBlinkDuration]
+ * @property {string[]} [textColors]
+ * @property {{ min: number; max: number } | undefined} [variableSpeed]
+ * @property {(sentence: string, index: number) => void} [onSentenceComplete]
+ * @property {boolean} [startOnVisible]
+ * @property {boolean} [reverseMode]
+ */
+
+/**
+ * @param {TextTypeProps} props
+ */
 const TextType = ({
   text,
+  stripHtml = true,
   as: Component = 'div',
   typingSpeed = 50,
   initialDelay = 0,
@@ -32,7 +59,24 @@ const TextType = ({
   const cursorRef = useRef(null);
   const containerRef = useRef(null);
 
-  const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
+  const stripHtmlTags = useCallback(
+    (raw) => {
+      if (!stripHtml) return raw ?? '';
+      const div = typeof document !== 'undefined' ? document.createElement('div') : null;
+      if (div) {
+        div.innerHTML = raw ?? '';
+        return div.textContent || div.innerText || '';
+      }
+      return String(raw ?? '').replace(/<[^>]*>/g, '');
+    },
+    [stripHtml]
+  );
+
+  const resolvedText = useMemo(() => {
+    const base = text;
+    const value = Array.isArray(base) ? base : [base ?? ''];
+    return value.map(v => stripHtmlTags(v));
+  }, [text, stripHtmlTags]);
 
   const getRandomSpeed = useCallback(() => {
     if (!variableSpeed) return typingSpeed;
@@ -76,27 +120,35 @@ const TextType = ({
     }
   }, [showCursor, cursorBlinkDuration]);
 
+  // Reset animation when text changes
+  useEffect(() => {
+    setDisplayedText('');
+    setCurrentCharIndex(0);
+    setIsDeleting(false);
+    setCurrentTextIndex(0);
+  }, [text]);
+
   useEffect(() => {
     if (!isVisible) return;
 
     let timeout;
 
-    const currentText = textArray[currentTextIndex];
+    const currentText = resolvedText[currentTextIndex];
     const processedText = reverseMode ? currentText.split('').reverse().join('') : currentText;
 
     const executeTypingAnimation = () => {
       if (isDeleting) {
         if (displayedText === '') {
           setIsDeleting(false);
-          if (currentTextIndex === textArray.length - 1 && !loop) {
+          if (currentTextIndex === resolvedText.length - 1 && !loop) {
             return;
           }
 
           if (onSentenceComplete) {
-            onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
+            onSentenceComplete(resolvedText[currentTextIndex], currentTextIndex);
           }
 
-          setCurrentTextIndex(prev => (prev + 1) % textArray.length);
+          setCurrentTextIndex(prev => (prev + 1) % resolvedText.length);
           setCurrentCharIndex(0);
           timeout = setTimeout(() => {}, pauseDuration);
         } else {
@@ -113,7 +165,7 @@ const TextType = ({
             },
             variableSpeed ? getRandomSpeed() : typingSpeed
           );
-        } else if (textArray.length > 1) {
+        } else if (resolvedText.length > 1) {
           timeout = setTimeout(() => {
             setIsDeleting(true);
           }, pauseDuration);
@@ -136,7 +188,7 @@ const TextType = ({
     typingSpeed,
     deletingSpeed,
     pauseDuration,
-    textArray,
+    resolvedText,
     currentTextIndex,
     loop,
     initialDelay,
@@ -147,7 +199,7 @@ const TextType = ({
   ]);
 
   const shouldHideCursor =
-    hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
+    hideCursorWhileTyping && (currentCharIndex < resolvedText[currentTextIndex].length || isDeleting);
 
   return createElement(
     Component,

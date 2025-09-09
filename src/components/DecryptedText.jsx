@@ -1,6 +1,24 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion } from 'motion/react';
 
+/**
+ * @typedef {Object} DecryptedTextProps
+ * @property {string=} text
+ * @property {number=} speed
+ * @property {number=} maxIterations
+ * @property {boolean=} sequential
+ * @property {'start'|'end'|'center'=} revealDirection
+ * @property {boolean=} useOriginalCharsOnly
+ * @property {string=} characters
+ * @property {string=} className
+ * @property {string=} parentClassName
+ * @property {string=} encryptedClassName
+ * @property {'hover'|'view'|'both'=} animateOn
+ */
+
+/**
+ * @param {DecryptedTextProps} props
+ */
 export default function DecryptedText({
   text,
   speed = 50,
@@ -15,19 +33,32 @@ export default function DecryptedText({
   animateOn = 'hover',
   ...props
 }) {
-  const [displayText, setDisplayText] = useState(text);
+  const resolvedText = useMemo(() => {
+    return text ?? '';
+  }, [text]);
+
+  const [displayText, setDisplayText] = useState(resolvedText);
   const [isHovering, setIsHovering] = useState(false);
   const [isScrambling, setIsScrambling] = useState(false);
   const [revealedIndices, setRevealedIndices] = useState(new Set());
   const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef(null);
 
+  // Ensure encrypted characters inherit the same base styling as the final text
+  const resolvedEncryptedClassName = encryptedClassName || className;
+
+  // Reset when text changes
+  useEffect(() => {
+    setDisplayText(text ?? '');
+    setRevealedIndices(new Set());
+  }, [text]);
+
   useEffect(() => {
     let interval;
     let currentIteration = 0;
 
     const getNextIndex = revealedSet => {
-      const textLength = text.length;
+      const textLength = resolvedText.length;
       switch (revealDirection) {
         case 'start':
           return revealedSet.size;
@@ -52,7 +83,7 @@ export default function DecryptedText({
     };
 
     const availableChars = useOriginalCharsOnly
-      ? Array.from(new Set(text.split(''))).filter(char => char !== ' ')
+      ? Array.from(new Set(resolvedText.split(''))).filter(char => char !== ' ')
       : characters.split('');
 
     const shuffleText = (originalText, currentRevealed) => {
@@ -96,11 +127,11 @@ export default function DecryptedText({
       interval = setInterval(() => {
         setRevealedIndices(prevRevealed => {
           if (sequential) {
-            if (prevRevealed.size < text.length) {
+            if (prevRevealed.size < resolvedText.length) {
               const nextIndex = getNextIndex(prevRevealed);
               const newRevealed = new Set(prevRevealed);
               newRevealed.add(nextIndex);
-              setDisplayText(shuffleText(text, newRevealed));
+              setDisplayText(shuffleText(resolvedText, newRevealed));
               return newRevealed;
             } else {
               clearInterval(interval);
@@ -108,19 +139,19 @@ export default function DecryptedText({
               return prevRevealed;
             }
           } else {
-            setDisplayText(shuffleText(text, prevRevealed));
+            setDisplayText(shuffleText(resolvedText, prevRevealed));
             currentIteration++;
             if (currentIteration >= maxIterations) {
               clearInterval(interval);
               setIsScrambling(false);
-              setDisplayText(text);
+              setDisplayText(resolvedText);
             }
             return prevRevealed;
           }
         });
       }, speed);
     } else {
-      setDisplayText(text);
+      setDisplayText(resolvedText);
       setRevealedIndices(new Set());
       setIsScrambling(false);
     }
@@ -128,7 +159,7 @@ export default function DecryptedText({
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isHovering, text, speed, maxIterations, sequential, revealDirection, characters, useOriginalCharsOnly]);
+  }, [isHovering, resolvedText, speed, maxIterations, sequential, revealDirection, characters, useOriginalCharsOnly]);
 
   useEffect(() => {
     if (animateOn !== 'view' && animateOn !== 'both') return;
@@ -181,7 +212,7 @@ export default function DecryptedText({
           const isRevealedOrDone = revealedIndices.has(index) || !isScrambling || !isHovering;
 
           return (
-            <span key={index} className={isRevealedOrDone ? className : encryptedClassName}>
+            <span key={index} className={isRevealedOrDone ? className : resolvedEncryptedClassName}>
               {char}
             </span>
           );

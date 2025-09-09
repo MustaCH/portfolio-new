@@ -8,8 +8,6 @@ import GradualBlurOverlay from "../components/GradualBlurOverlay.jsx";
 import ProfileCard from "../components/ProfileCard.jsx";
 const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 
-const text = "Hola! mi nombre es Ignacio Poletti";
-const text2 = "Soy un desarrollador frontend y especialista en automatización de IA";
 ---
 
 <Base title={title}>
@@ -32,7 +30,8 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 	<div class="flex flex-col md:flex-row items-center justify-center gap-4 h-screen">
 		<div class="flex flex-col gap-4 w-full md:w-1/2" >
 			<TextType client:load
-				text={text} 
+				text="Hola! mi nombre es Ignacio Poletti"
+				stripHtml={true}
 				typingSpeed={50} 
 				deletingSpeed={30} 
 				pauseDuration={2000} 
@@ -45,7 +44,7 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 				cursorBlinkDuration={0.5}
 			/>
 			<DecryptedText client:load
-				text={text2}
+				text="Soy un desarrollador de software y especialista en automatización de IA"
 				speed={300}
 				maxIterations={10}
 				sequential={false}
@@ -56,57 +55,57 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 				className="text-muted text-md md:text-2xl"
 			/>
 			<div class="flex flex-col md:flex-row gap-4 mt-4">
-				<a class="block bg-accent backdrop-blur text-text px-4 py-2 rounded shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-300" href="https://wa.me/" data-i18n="home.send_whatsapp">Enviame un whatsapp</a>
-				<a class="block bg-transparent text-accent px-4 py-2 rounded" href="" data-i18n="home.schedule_meeting">Agenda una reunión</a>
+				<a class="block bg-accent backdrop-blur text-text px-4 py-2 text-center rounded shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-300" href="https://wa.me/">Enviame un whatsapp</a>
+				<a class="block bg-transparent text-accent px-4 py-2 text-center rounded" href="">Agenda una reunión</a>
 			</div>
 		</div>
 		<div class="flex justify-center w-full md:w-1/2">
-			<img class="" src="/hero-image.PNG" alt="Hero image" data-i18n-attr="alt:home.hero_image_alt">
+			<img class="" src="/hero-image.PNG" alt="Imagen principal">
 		</div>
 	</div>
 	<div class="flex flex-col justify-center items-center gap-4 mt-16">
 		<div class="flex flex-col justify-center items-center gap-4">
-			<h2 class="text-3xl font-bold md:text-5xl" data-i18n="section.what_i_do_title">¿Que hago?</h2>
-			<p class="text-muted text-md md:text-xl text-center" data-i18n-html="section.what_i_do_desc">Soy Ignacio Poletti, Web Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras.</p>
+			<h2 class="text-3xl font-bold md:text-5xl">¿Que hago?</h2>
+			<p class="text-muted text-md md:text-xl text-center">Soy Ignacio Poletti, Web Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras.</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
 			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur p-4 rounded h-64">
 				<svg class="lucide lucide-bot" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M12 8V4H8"></path><rect height="12" rx="2" width="16" x="4" y="8"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
-				<h3 class="text-xl font-bold" data-i18n="cards.automation.title">Automatizaciones con IA</h3>
-				<p class="text-muted text-md" data-i18n="cards.automation.desc">Automatiza tareas y flujos de trabajo repetitivos usando IA y n8n para aumentar la eficiencia y reducir el esfuerzo manual</p>
+				<h3 class="text-xl font-bold">Automatizaciones con IA</h3>
+				<p class="text-muted text-md">Automatiza tareas y flujos de trabajo repetitivos usando IA y n8n para aumentar la eficiencia y reducir el esfuerzo manual</p>
 			</div>
 			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur p-4 rounded h-64">
 				<svg class="lucide lucide-code-xml" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
-				<h3 class="text-xl font-bold" data-i18n="cards.webdev.title">Desarrollo web</h3>
-				<p class="text-muted text-md" data-i18n="cards.webdev.desc">Crear interfaces mordernas, responsivas y fáciles de usar con tecnologías de vanguardia.</p>
+				<h3 class="text-xl font-bold">Desarrollo web</h3>
+				<p class="text-muted text-md">Crear interfaces mordernas, responsivas y fáciles de usar con tecnologías de vanguardia.</p>
 			</div>
 			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur p-4 rounded h-64">
 				<svg class="lucide lucide-puzzle" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M19.435 7.065a2.5 2.5 0 0 0-3.536 0L12 10.93l-3.535-3.865a2.5 2.5 0 0 0-3.536 0l-.004.005a2.5 2.5 0 0 0 0 3.534l3.865 3.536-3.865 3.535a2.5 2.5 0 0 0 0 3.536l.005.004a2.5 2.5 0 0 0 3.534 0L12 14.86l3.535 3.865a2.5 2.5 0 0 0 3.536 0l.004-.005a2.5 2.5 0 0 0 0-3.534L15.665 12l3.77-3.77a2.5 2.5 0 0 0 0-3.535Z"></path><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m20 12-2 0"></path><path d="m4 12 2 0"></path></svg>
-				<h3 class="text-xl font-bold" data-i18n="cards.integrations.title">Integraciones a medida</h3>
-				<p class="text-muted text-md" data-i18n="cards.integrations.desc">Integra sin problemas varios sistemas y plataformas para crear un ecosistema digital cohesivo y eficiente</p>
+				<h3 class="text-xl font-bold">Integraciones a medida</h3>
+				<p class="text-muted text-md">Integra sin problemas varios sistemas y plataformas para crear un ecosistema digital cohesivo y eficiente</p>
 			</div>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mt-16">
 			<div class="flex flex-col items-center gap-2">
 				<svg class="lucide lucide-timer" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="12" y1="5" y2="9"></line><circle cx="12" cy="14" r="8"></circle></svg>
-				<p data-i18n="benefits.time">Ahorro de tiempo</p>
+				<p>Ahorro de tiempo</p>
 			</div>
 			<div class="flex flex-col items-center gap-2">
 				<svg class="lucide lucide-shield-check" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>
-				<p data-i18n="benefits.fewer_errors">Menos errores</p>
+				<p>Menos errores</p>
 			</div>
 			<div class="flex flex-col items-center gap-2">
 				<svg class="lucide lucide-move-horizontal" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M18 8L22 12L18 16"></path><path d="M2 12H22"></path><path d="M18 16L22 12L18 8"></path><path d="M2 12H22"></path><path d="M6 8L2 12L6 16"></path></svg>
-				<p data-i18n="benefits.scalability">Escalabilidad</p>
+				<p>Escalabilidad</p>
 			</div>
 			<div class="flex flex-col items-center gap-2">
 				<svg class="lucide lucide-users" fill="none" height="32" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-				<p data-i18n="benefits.lower_costs">Costos reducidos</p>
+				<p>Costos reducidos</p>
 			</div>
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl font-bold text-center mt-16" data-i18n="projects.title">Proyectos destacados</h2>
+		<h2 class="text-3xl font-bold text-center mt-16">Proyectos destacados</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 mt-16">
 			{projects.map((project) => (
 				<ProfileCard
@@ -122,21 +121,21 @@ const text2 = "Soy un desarrollador frontend y especialista en automatización d
 		</div>
 	</div>
 	<div class="mb-16">
-		<h2 class="text-3xl font-bold text-center mt-16" data-i18n="cta.start_title">¿Empezamos?</h2>
-		<p class="text-center mt-4" data-i18n="cta.start_desc">Contame tus necesidades y yo te propondré soluciones</p>
+		<h2 class="text-3xl font-bold text-center mt-16">¿Empezamos?</h2>
+		<p class="text-center mt-4">Contame tus necesidades y yo te propondré soluciones</p>
 		<hr class="w-1/2 mx-auto mt-8">
 		<div class="flex items-center justify-center gap-4 mt-8">
-			<a class="flex items-center bg-accent border-accent border-2 text-text px-4 py-2 rounded gap-2" href="https://wa.link/5zy9w0">
+			<a class="flex items-center bg-accent border-accent border-2 text-text px-4 py-2 rounded gap-2 shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-300" href="https://wa.link/5zy9w0">
 				<svg class="lucide lucide-message-circle" fill="none" height="24" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.9 20A9 9 1 1 0 4 16.1L2 22Z"></path></svg>
-				<p data-i18n="cta.whatsapp">Whatsapp</p>
+				<p>Whatsapp</p>
 			</a>
 			<a class="flex items-center bg-surface-200 border-white border text-text px-4 py-2 rounded gap-2" href="">
 				<svg class="lucide lucide-calendar-days" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>				
-				<p data-i18n="cta.calendly">Calendly</p>
+				<p>Calendly</p>
 			</a>
 		</div>
 		<div class="flex items-center justify-center mt-8">
-			<a href="mailto:polettiignacio7@gmail.com" data-i18n="cta.email">polettiignacio7@gmail.com</a>
+			<a href="mailto:polettiignacio7@gmail.com">polettiignacio7@gmail.com</a>
 		</div>
 	</div>
 </Base>
