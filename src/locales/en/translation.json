@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Ignacio Poletti - Web Developer & AI Automation Specialist"
+  },
+  "home": {
+    "greeting_html": "Hi! my name is <br><span class=\" text-accent\">Ignacio Poletti</span>",
+    "subtitle": "I'm a frontend developer and AI automation specialist",
+    "send_whatsapp": "Send me a WhatsApp",
+    "schedule_meeting": "Schedule a meeting",
+    "hero_image_alt": "Hero image"
+  },
+  "section": {
+    "what_i_do_title": "What do I do?",
+    "what_i_do_desc": "I'm Ignacio Poletti, Web Developer and AI Automation Specialist. <br> I help companies optimize their operations and improve their digital presence through innovative solutions."
+  },
+  "cards": {
+    "automation": {
+      "title": "AI automations",
+      "desc": "Automate repetitive tasks and workflows using AI and n8n to increase efficiency and reduce manual effort"
+    },
+    "webdev": {
+      "title": "Web development",
+      "desc": "Build modern, responsive, and easy-to-use interfaces with cutting-edge technologies."
+    },
+    "integrations": {
+      "title": "Custom integrations",
+      "desc": "Seamlessly integrate various systems and platforms to create a cohesive and efficient digital ecosystem"
+    }
+  },
+  "benefits": {
+    "time": "Time savings",
+    "fewer_errors": "Fewer errors",
+    "scalability": "Scalability",
+    "lower_costs": "Lower costs"
+  },
+  "projects": {
+    "title": "Featured projects",
+    "view_more": "View more"
+  },
+  "cta": {
+    "start_title": "Shall we start?",
+    "start_desc": "Tell me your needs and I will propose solutions",
+    "whatsapp": "Whatsapp",
+    "calendly": "Calendly",
+    "email": "polettiignacio7@gmail.com"
+  }
+}

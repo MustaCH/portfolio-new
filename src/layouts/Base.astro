@@ -1,0 +1,59 @@
+---
+export interface Props {
+  title?: string;
+}
+const { title } = Astro.props as Props;
+import "../styles/global.css";
+import "aos/dist/aos.css";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <title data-i18n="meta.title">{title ?? 'Site'}</title>
+  </head>
+  <body class="bg-transparent text-text p-16">
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2 bg-surface-200/70 backdrop-blur px-3 py-2 rounded">
+      <label for="lang-select" class="text-sm text-muted">Lang</label>
+      <select id="lang-select" class="bg-transparent border border-accent text-text text-sm rounded px-2 py-1">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+    <slot />
+    <script type="module">
+      import { initI18n, applyTranslations, i18next } from "../lib/i18n";
+      import AOS from "aos";
+      (async () => {
+        await initI18n();
+        applyTranslations();
+        i18next.on("languageChanged", () => applyTranslations());
+
+        // Language selector wiring
+        const select = document.getElementById("lang-select");
+        if (select && select instanceof HTMLSelectElement) {
+          const current = (i18next.language || "en").split("-")[0];
+          select.value = current;
+          select.addEventListener("change", (e) => {
+            const target = e.target;
+            if (target && target instanceof HTMLSelectElement) {
+              const lng = target.value;
+              try {
+                localStorage.setItem("i18nextLng", lng);
+                i18next.changeLanguage(lng);
+              } catch {}
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
+

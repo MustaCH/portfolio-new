@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global base styles */
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+html,
+body {
+  @apply m-0 p-0 font-mono bg-bg text-text antialiased;
+}
+
+/* Utility examples aligned with the reference */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+}
+.btn-accent {
+  @apply bg-accent text-bg hover:bg-accent-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 shadow;
+}
+.btn-ghost {
+  @apply border border-accent/60 text-text hover:bg-surface-100;
+}
+
+.container-hero {
+  @apply mx-auto max-w-6xl px-6;
+}

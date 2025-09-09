@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Ignacio Poletti - Desarrollador Web y Especialista en Automatización de IA"
+  },
+  "home": {
+    "greeting_html": "¡Hola! mi nombre es <br><span class=\" text-accent\">Ignacio Poletti</span>",
+    "subtitle": "Soy un desarrollador frontend y especialista en automatización de IA",
+    "send_whatsapp": "Envíame un WhatsApp",
+    "schedule_meeting": "Agenda una reunión",
+    "hero_image_alt": "Imagen principal"
+  },
+  "section": {
+    "what_i_do_title": "¿Qué hago?",
+    "what_i_do_desc": "Soy Ignacio Poletti, Web Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras."
+  },
+  "cards": {
+    "automation": {
+      "title": "Automatizaciones con IA",
+      "desc": "Automatiza tareas y flujos de trabajo repetitivos usando IA y n8n para aumentar la eficiencia y reducir el esfuerzo manual"
+    },
+    "webdev": {
+      "title": "Desarrollo web",
+      "desc": "Crear interfaces modernas, responsivas y fáciles de usar con tecnologías de vanguardia."
+    },
+    "integrations": {
+      "title": "Integraciones a medida",
+      "desc": "Integra sin problemas varios sistemas y plataformas para crear un ecosistema digital cohesivo y eficiente"
+    }
+  },
+  "benefits": {
+    "time": "Ahorro de tiempo",
+    "fewer_errors": "Menos errores",
+    "scalability": "Escalabilidad",
+    "lower_costs": "Costos reducidos"
+  },
+  "projects": {
+    "title": "Proyectos destacados",
+    "view_more": "Ver más"
+  },
+  "cta": {
+    "start_title": "¿Empezamos?",
+    "start_desc": "Contame tus necesidades y yo te propondré soluciones",
+    "whatsapp": "Whatsapp",
+    "calendly": "Calendly",
+    "email": "polettiignacio7@gmail.com"
+  }
+}
