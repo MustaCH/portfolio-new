@@ -56,100 +56,132 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 			<h2 class="text-3xl font-bold md:text-5xl">Servicios</h2>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 justify-evenly items-center gap-4">
-			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/95 bg-[url('/web-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
+			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/85 bg-[url('/web-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
 				<div class="flex flex-col justify-between gap-6 h-full">
 					<div class="flex flex-col gap-4">
 						<h3 class="text-2xl font-bold text-mint-200">Desarrollo web</h3>
 						<p class="text-text text-sm">Ideal para personas que busquen darle una presencia profesional en internet a su negocio o empresa.</p>
 					</div>
 					<hr>
-					<div>
+					<div class="flex flex-col gap-2">
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Frontend</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Backend</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Database</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Hosting</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">SEO</p>
 						</div>
 					</div>
 					<button class="block text-sm md:text-md bg-mint-200 border-mint-200 border-2 backdrop-blur text-surface-200 px-4 py-2 text-center rounded-xl shadow-[0_0_18px_rgba(52,211,153,0.55)] hover:shadow-[0_0_28px_rgba(52,211,153,0.85)] transition-shadow duration-150">Solicitar cotización</button>
 				</div>
 			</ElectricBorder>
-			<ElectricBorder client:load color="#FF6B3D" speed={1} chaos={0.3} thickness={3} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/95 bg-[url('/autom-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
+			<ElectricBorder client:load color="#FF6B3D" speed={1} chaos={0.3} thickness={3} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/85 bg-[url('/autom-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
 				<div class="flex flex-col justify-between gap-6 h-full">
 					<div class="flex flex-col gap-4">
 						<h3 class="text-2xl font-bold">Automatizaciones con IA</h3>
 						<p class="text-text text-sm">Usa el enorme poder de la IA para ahorrarte tareas repetitivas, mejorar el rendimiento de tu empresa o emprendimiento.</p>
 					</div>
 					<hr>
-					<div>
+					<div class="flex flex-col gap-2">
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Whatsapp</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Telegram</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Slack</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Discord</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Email</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
-							<p class="text-sm text-muted">Lo que necesites...</p>
+							<div class="p-1 border-2 border-[#FF6B3D] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#FF6B3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
+							<p class="text-sm text-muted">Y lo que necesites...</p>
 						</div>
 					</div>
 					<button class="block text-sm md:text-md bg-accent backdrop-blur text-text px-4 py-2 text-center rounded-xl shadow-[0_0_18px_rgba(255,107,61,0.55)] hover:shadow-[0_0_28px_rgba(255,107,61,0.85)] transition-shadow duration-150">Solicitar cotización</button>
 				</div>
 			</ElectricBorder>
-			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/95 bg-[url('/mobile-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
+			<ElectricBorder client:load color="#34D399" speed={1} chaos={0.3} thickness={2} style={{ borderRadius: "0.75rem" }} className="p-8 bg-black/85 bg-[url('/mobile-icon.png')] bg-contain bg-center bg-no-repeat bg-blend-overlay h-full">
 				<div class="flex flex-col justify-between gap-6 h-full">
-					<div class="flex flex-col gap-4">
+					<div class="flex flex-col gap-4 h-26">
 						<h3 class="text-2xl font-bold text-mint-200">Desarrollo app</h3>
-						<p class="text-text text-sm">Pensado para esas personas que tienen una solución a un problema y quieren convertirla en realidad iniciando un nuevo negocio.</p>
+						<p class="text-text text-sm">Pensado para esas personas que tienen una solución a un problema y quieren convertirla en realidad.</p>
 					</div>
 					<hr>
-					<div>
+					<div class="flex flex-col gap-2">
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Frontend</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Backend</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Database</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">Hosting</p>
 						</div>
 						<div class="flex items-center gap-2">
-							<svg class="lucide lucide-check" fill="none" height="20" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							<div class="p-1 border-2 border-[#34D399] rounded-full">
+								<svg class="lucide lucide-check" fill="none" height="15" stroke="#34D399" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5"></path></svg>
+							</div>
 							<p class="text-sm text-muted">SEO</p>
 						</div>
 					</div>
@@ -159,7 +191,7 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 		</div>
 	</div>
 	<div class="flex flex-col justify-center items-center gap-4 mt-16">
-		<div class="flex flex-col justify-center  gap-4">
+		<div class="flex flex-col justify-center gap-4">
 			<h2 class="text-3xl font-bold md:text-5xl">¿Quien soy?</h2>
 			<p class="text-muted text-md md:text-xl text-start">Soy Ignacio Poletti, Software Developer y AI Automation Specialist. <br> Ayudo a las empresas a optimizar sus operaciones y mejorar su presencia digital a través de soluciones innovadoras.</p>
 		</div>
