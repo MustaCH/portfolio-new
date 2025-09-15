@@ -169,11 +169,7 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 			{projects.map((project) => (
 				<ProjectCard
 					client:load
-					image={project.image}
-					title={project.title}
-					description={project.description}
-					tags={project.tags}
-					link={project.link}
+					project={project}
 					accentColor="#FF6B3D"
 				/>
 			))}

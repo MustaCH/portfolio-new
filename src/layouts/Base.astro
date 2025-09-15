@@ -4,7 +4,6 @@ export interface Props {
 }
 const { title } = Astro.props as Props;
 import "../styles/global.css";
-import "aos/dist/aos.css";
 ---
 <html lang="en">
   <head>
@@ -22,7 +21,6 @@ import "aos/dist/aos.css";
   <body class="bg-transparent text-text px-16">
     <slot />
     <script type="module">
-      import AOS from "aos";
       import Lenis from "@studio-freight/lenis";
       (async () => {
         // Smooth/inertial scroll with Lenis (respects prefers-reduced-motion)
