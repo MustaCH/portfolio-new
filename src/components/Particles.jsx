@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
-const defaultColors = ['#ffffff', '#ffffff', '#ffffff'];
+const defaultColors = ['#ffffff', '#e0e0ff', '#f0f0ff'];
 
 const hexToRgb = hex => {
   hex = hex.replace(/^#/, '');
@@ -71,15 +71,25 @@ const fragment = /* glsl */ `
     vec2 uv = gl_PointCoord.xy;
     float d = length(uv - vec2(0.5));
     
-    if(uAlphaParticles < 0.5) {
-      if(d > 0.5) {
-        discard;
-      }
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);
-    } else {
-      float circle = smoothstep(0.5, 0.4, d) * 0.8;
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);
+    // Enhanced glow effect
+    float glow = 0.0;
+    if (d < 0.5) {
+      glow = pow(1.0 - smoothstep(0.0, 0.5, d), 2.0) * 0.5;
     }
+    
+    // Base circle with smooth edges
+    float circle = smoothstep(0.5, 0.4, d);
+    
+    // Combine glow with circle
+    vec3 color = vColor * (circle + glow);
+    
+    // Add subtle color variation over time
+    color += 0.15 * sin(uv.yxx + uTime * 0.5 + vRandom.y * 6.28);
+    
+    // Ensure minimum brightness for better visibility
+    color = max(color, vec3(0.2));
+    
+    gl_FragColor = vec4(color, 1.0);
   }
 `;
 
@@ -104,10 +114,14 @@ const Particles = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ depth: false, alpha: true });
+    const renderer = new Renderer({ 
+      depth: false, 
+      alpha: false, // Changed to false to ensure background is not transparent
+      antialias: true // Added for smoother particles
+    });
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
-    gl.clearColor(0, 0, 0, 0);
+    gl.clearColor(0, 0, 0, 1); // Changed alpha to 1 for solid black background
 
     const camera = new Camera(gl, { fov: 15 });
     camera.position.set(0, 0, cameraDistance);
