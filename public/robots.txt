@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ignaciopoletti.com/sitemap-index.xml
+
+# Crawl-delay: 10
+# Deshabilitar directorios específicos si es necesario
+# Disallow: /private/
+# Disallow: /temporal/

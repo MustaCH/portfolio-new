@@ -7,10 +7,15 @@ import Particles from "../components/Particles";
 import ProjectCard from "../components/ProjectCard.jsx";
 import ElectricBorder from "../components/ElectricBorder";
 const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
-
+const description = "Desarrollador de software y especialista en automatización con IA. Ofrezco soluciones web personalizadas, desarrollo de aplicaciones y automatización de procesos para potenciar tu negocio.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<Base title={title}>
+<Base 
+	title={title}
+	description={description}
+	canonicalURL={canonicalURL}
+>
 	{/* Background Particles */}
 	<div class="fixed inset-0 -z-10 pointer-events-none">
 		<Particles client:load className="w-full h-full" />

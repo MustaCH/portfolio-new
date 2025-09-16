@@ -1,22 +1,81 @@
 ---
+import { getImage } from 'astro:assets';
+import siteConfig from '../site.config';
+
 export interface Props {
   title?: string;
+  description?: string;
+  canonicalURL?: string;
 }
-const { title } = Astro.props as Props;
-import "../styles/global.css";
+
+const { title, description = 'Desarrollador de software y especialista en automatización con IA. Soluciones web personalizadas y desarrollo de aplicaciones.', canonicalURL } = Astro.props as Props;
+
+// URL canónica
+const siteURL = new URL(import.meta.env.SITE || 'https://ignaciopoletti.com');
+const currentURL = canonicalURL ? new URL(canonicalURL, siteURL).toString() : new URL(Astro.url.pathname, siteURL).toString();
+const imageURL = new URL('/hero-image.PNG', siteURL).toString();
+
+// Schema.org JSON-LD
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ignacio Poletti",
+  "jobTitle": "Web Developer & AI Automation Specialist",
+  "url": siteURL.toString(),
+  "sameAs": [
+    "https://github.com/tuusuario",
+    "https://linkedin.com/in/tu-perfil"
+  ],
+  "image": imageURL,
+  "description": description
+};
 ---
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.PNG" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title ? `${title} | Ignacio Poletti` : 'Ignacio Poletti - Web Developer & AI Automation Specialist'}</title>
+    <meta name="title" content={title ? `${title} | Ignacio Poletti` : 'Ignacio Poletti - Web Developer & AI Automation Specialist'} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Ignacio Poletti" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f172a" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href={currentURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.PNG" />
+    <link rel="apple-touch-icon" href="/favicon.PNG" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentURL} />
+    <meta property="og:title" content={title ? `${title} | Ignacio Poletti` : 'Ignacio Poletti - Web Developer & AI Automation Specialist'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content="Ignacio Poletti - Portfolio" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={currentURL} />
+    <meta property="twitter:title" content={title ? `${title} | Ignacio Poletti` : 'Ignacio Poletti - Web Developer & AI Automation Specialist'} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageURL} />
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <title>{title ?? 'Site'}</title>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {JSON.stringify(schema)}
+    </script>
   </head>
   <body class="bg-transparent text-text px-16">
     <slot />
