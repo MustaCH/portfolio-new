@@ -63,33 +63,33 @@ const fragment = /* glsl */ `
   precision highp float;
   
   uniform float uTime;
-  uniform float uAlphaParticles;
+  uniform float uAlphaParticles; // 1.0 = use alpha falloff, 0.0 = force opaque
   varying vec4 vRandom;
   varying vec3 vColor;
   
   void main() {
     vec2 uv = gl_PointCoord.xy;
     float d = length(uv - vec2(0.5));
-    
-    // Enhanced glow effect
-    float glow = 0.0;
-    if (d < 0.5) {
-      glow = pow(1.0 - smoothstep(0.0, 0.5, d), 2.0) * 0.5;
-    }
-    
-    // Base circle with smooth edges
-    float circle = smoothstep(0.5, 0.4, d);
-    
-    // Combine glow with circle
-    vec3 color = vColor * (circle + glow);
-    
-    // Add subtle color variation over time
-    color += 0.15 * sin(uv.yxx + uTime * 0.5 + vRandom.y * 6.28);
-    
-    // Ensure minimum brightness for better visibility
+
+    // Soft circular mask
+    float edge = smoothstep(0.48, 0.5, d);     // 0 at center .. 1 at outer edge
+    float alpha = 1.0 - edge;                  // fade to transparent at edge
+
+    // Early discard for pixels outside the circle to avoid square artifacts
+    if (d > 0.5) discard;
+
+    // Glow towards the center
+    float glow = pow(1.0 - smoothstep(0.0, 0.5, d), 2.0) * 0.6;
+
+    // Base color with time variation
+    vec3 color = vColor;
+    color += 0.12 * sin(uv.yxx + uTime * 0.5 + vRandom.y * 6.2831853);
     color = max(color, vec3(0.2));
-    
-    gl_FragColor = vec4(color, 1.0);
+
+    // Combine alpha with optional override via uAlphaParticles
+    float a = mix(1.0, clamp(alpha + glow, 0.0, 1.0), uAlphaParticles);
+
+    gl_FragColor = vec4(color * a, a);
   }
 `;
 
@@ -100,7 +100,7 @@ const Particles = ({
   particleColors = undefined,
   moveParticlesOnHover = false,
   particleHoverFactor = 1,
-  alphaParticles = false,
+  alphaParticles = true,
   particleBaseSize = 100,
   sizeRandomness = 1,
   cameraDistance = 20,
@@ -116,12 +116,13 @@ const Particles = ({
 
     const renderer = new Renderer({ 
       depth: false, 
-      alpha: false, // Changed to false to ensure background is not transparent
-      antialias: true // Added for smoother particles
+      alpha: true,               // transparent canvas so edges blend correctly
+      antialias: true,           // smoother particles
+      premultipliedAlpha: true   // correct blending with glow
     });
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
-    gl.clearColor(0, 0, 0, 1); // Changed alpha to 1 for solid black background
+    gl.clearColor(0, 0, 0, 1); // opaque black background for strong contrast
 
     const camera = new Camera(gl, { fov: 15 });
     camera.position.set(0, 0, cameraDistance);
