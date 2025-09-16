@@ -15,7 +15,7 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 	<div class="fixed inset-0 -z-10 pointer-events-none">
 		<Particles client:load className="w-full h-full" />
 	</div>
-	<div class="flex flex-col md:flex-row items-center justify-center gap-4 h-screen">
+	<div id="inicio" class="flex flex-col md:flex-row items-center justify-center gap-4 h-screen">
 		<div class="flex flex-col gap-4 w-full md:w-1/2" >
 			<TextType client:load
 				text="Hola! mi nombre es Ignacio Poletti"
@@ -51,7 +51,43 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 			<img class="" src="/hero-image.PNG" alt="Imagen principal">
 		</div>
 	</div>
-	<div class="flex flex-col gap-12 py-12">
+	<div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-16">
+		<div class="flex flex-col justify-center gap-4 md:w-1/2">
+			<h2 class="text-3xl font-bold">Mi propuesta de valor</h2>
+			<p class="text-muted text-md md:text-lg text-start">Más allá de la tecnología, mi enfoque está en crear soluciones que generen impacto real en tu negocio. Con cada proyecto busco optimizar procesos, reducir esfuerzos manuales y potenciar el crecimiento de manera sostenible.</p>
+		</div>
+		<div class="grid grid-cols-2 gap-4 mt-16 md:w-1/2">
+			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
+				<h3 class="text-sm md:text-xl font-bold">⏳ Ahorro de tiempo</h3>
+				<p class="text-muted text-xs md:text-md">Automatizá tareas y liberá horas valiosas cada semana.</p>
+			</div>
+			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
+				<h3 class="text-sm md:text-xl font-bold">🛡️ Menos errores</h3>
+				<p class="text-muted text-xs md:text-md">Procesos automáticos y confiables que reducen fallas humanas.</p>
+			</div>
+			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
+				<h3 class="text-sm md:text-xl font-bold">📈 Escalabilidad</h3>
+				<p class="text-muted text-xs md:text-md">Soluciones pensadas para crecer con tu negocio.</p>
+			</div>
+			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
+				<h3 class="text-sm md:text-xl font-bold">💸 Costos reducidos</h3>
+				<p class="text-muted text-xs md:text-md">Invertí en tecnología que se paga sola con eficiencia.</p>
+			</div>
+		</div>
+	</div>
+	<div id="proyectos">
+		<h2 class="text-3xl font-bold text-center mt-16">Proyectos destacados</h2>
+		<div class="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 mt-16">
+			{projects.map((project) => (
+				<ProjectCard
+					client:load
+					project={project}
+					accentColor="#FF6B3D"
+				/>
+			))}
+		</div>
+	</div>
+	<div id="servicios" class="flex flex-col gap-12 py-12">
 		<div class="text-center">
 			<h2 class="text-3xl font-bold md:text-5xl">Servicios</h2>
 		</div>
@@ -139,43 +175,7 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 			</ElectricBorder>
 		</div>
 	</div>
-	<div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-16">
-		<div class="flex flex-col justify-center gap-4 md:w-1/2">
-			<h2 class="text-3xl font-bold">Mi propuesta de valor</h2>
-			<p class="text-muted text-md md:text-lg text-start">Más allá de la tecnología, mi enfoque está en crear soluciones que generen impacto real en tu negocio. Con cada proyecto busco optimizar procesos, reducir esfuerzos manuales y potenciar el crecimiento de manera sostenible.</p>
-		</div>
-		<div class="grid grid-cols-2 gap-4 mt-16 md:w-1/2">
-			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
-				<h3 class="text-sm md:text-xl font-bold">⏳ Ahorro de tiempo</h3>
-				<p class="text-muted text-xs md:text-md">Automatizá tareas y liberá horas valiosas cada semana.</p>
-			</div>
-			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
-				<h3 class="text-sm md:text-xl font-bold">🛡️ Menos errores</h3>
-				<p class="text-muted text-xs md:text-md">Procesos automáticos y confiables que reducen fallas humanas.</p>
-			</div>
-			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
-				<h3 class="text-sm md:text-xl font-bold">📈 Escalabilidad</h3>
-				<p class="text-muted text-xs md:text-md">Soluciones pensadas para crecer con tu negocio.</p>
-			</div>
-			<div class="flex flex-col gap-4 bg-surface-200/60 backdrop-blur border border-accent shadow-[0_0_18px_rgba(255,107,61,0.55)] p-4 rounded-lg">
-				<h3 class="text-sm md:text-xl font-bold">💸 Costos reducidos</h3>
-				<p class="text-muted text-xs md:text-md">Invertí en tecnología que se paga sola con eficiencia.</p>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl font-bold text-center mt-16">Proyectos destacados</h2>
-		<div class="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 mt-16">
-			{projects.map((project) => (
-				<ProjectCard
-					client:load
-					project={project}
-					accentColor="#FF6B3D"
-				/>
-			))}
-		</div>
-	</div>
-	<div class="mb-16">
+	<div id="contacto" class="mb-16">
 		<h2 class="text-3xl font-bold text-center mt-16">¿Empezamos?</h2>
 		<p class="text-center mt-4">Contame tus necesidades y yo te propondré soluciones</p>
 		<hr class="w-1/2 mx-auto mt-8">
@@ -194,4 +194,3 @@ const title = "Ignacio Poletti - Web Developer & AI Automation Specialist";
 		</div>
 	</div>
 </Base>
-
