@@ -13,7 +13,7 @@ const { title, description = 'Desarrollador de software y especialista en automa
 // URL canónica
 const siteURL = new URL(import.meta.env.SITE || 'https://ignaciopoletti.com');
 const currentURL = canonicalURL ? new URL(canonicalURL, siteURL).toString() : new URL(Astro.url.pathname, siteURL).toString();
-const imageURL = new URL('/hero-image.PNG', siteURL).toString();
+const imageURL = new URL('/og-image.png', siteURL).toString();
 
 // Schema.org JSON-LD
 const schema = {
